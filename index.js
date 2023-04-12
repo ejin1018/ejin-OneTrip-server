@@ -23,7 +23,6 @@ app.use("/upload", express.static("upload"));
 
 app.get("/products", (req, res) => {
   models.Product.findAll({
-    // 'ASC','DESC'
     order: [["id", "ASC"]],
     attributes: ["id", "price", "p_name", "p_sdate", "p_edate", "p_country", "p_area", "trans", "retrans", "p_snum", "p_enum", "departure", "redeparture", "count", "theme", "imageUrl", "hotel", "soldout", "heart"],
   })
@@ -39,9 +38,7 @@ app.get("/products", (req, res) => {
 
 app.get("/product", (req, res) => {
   models.Product.findAll({
-    where: { soldout : 0 },
     limit: 4,
-    // 'ASC','DESC'
     order: [["id", "DESC"]],
     attributes: ["id", "price", "p_name", "p_sdate", "p_edate", "p_country", "p_area", "trans", "retrans", "p_snum", "p_enum", "departure", "redeparture", "count", "theme", "imageUrl", "hotel", "soldout", "heart", "start", "end"],
   })
